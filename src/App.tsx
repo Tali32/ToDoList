@@ -1,12 +1,15 @@
 import React from 'react';
-import './App.css';
+import Moment from 'moment';
+import {TasksItem} from "./components/TasksItem";
 
-function App() {
+const Tasks: Array<Task> = [
+  {text: "Work by progect", date: Moment(new Date(2021,4,6,17,15)).format('HH:MM DD-MM-YYYY'), completed: false},
+  {text: "Go online at 19:00", date: Moment(new Date(2021,4,6,17,21)).format('HH:MM DD-MM-YYYY'), completed: false}
+];
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-    </div>
+    <TasksItem task={Tasks[0]}/>
   );
 }
 
