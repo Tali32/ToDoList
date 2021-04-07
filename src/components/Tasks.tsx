@@ -9,12 +9,18 @@ interface TasksProps{
 
 export const Tasks: React.FC<TasksProps> = ({tasks, toggleTask}) =>{
     return(
-        <div className="list">
-            <ul>
-                {tasks.map(task =>{
-                    return <TasksItem key={task.text} task={task} toggleTask={toggleTask}/>
-                })}
-            </ul>
+        <div className="body">
+            <div className="header">
+                <label>Tasks:</label>
+            </div>
+            <div className="list">
+                <ul>
+                    {tasks.map(task =>{
+                        return <TasksItem key={task.text} task={task} toggleTask={toggleTask}/>
+                    })}
+                </ul>
+            </div>
+            
         </div>
     );
 };

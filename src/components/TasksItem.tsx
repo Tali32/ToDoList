@@ -16,7 +16,8 @@ export const TasksItem: React.FC<TasksItemProps> = ( {task, toggleTask} ) =>{
                     {task.text}
                 </label>
             </div>
-            <div>
+            <div className="date_item">
+                <label className="date">Date: </label>
                 <label >{task.date}</label>
             </div>
             </ul>
