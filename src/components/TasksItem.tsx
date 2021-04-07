@@ -9,17 +9,17 @@ interface TasksItemProps{
 export const TasksItem: React.FC<TasksItemProps> = ( {task, toggleTask} ) =>{
     return (
         <div className="list_item">
-            <li>
+            <ul>
             <input type="checkbox" checked={task.completed} onChange={() =>toggleTask(task)}/>
             <div className="text">
                 <label className={task.completed ? "complete" : undefined}>
                     {task.text}
                 </label>
             </div>
-            <label className="date">
-                {" " + task.date}
-            </label>
-            </li>
+            <div>
+                <label >{task.date}</label>
+            </div>
+            </ul>
         </div>
     );
 };

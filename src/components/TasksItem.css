@@ -3,17 +3,18 @@
 }
 
 .text{
+    word-wrap: break-word;
     margin-left: 20px;
-}
-
-.date{
-    margin-left: 25px;
+    margin-right: 5px;
 }
 
 .list_item{
-    width: 400px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
     height: max-content;
     color: rgb(255, 255, 255);
     background-color: rgb(43, 43, 43);
-    border-radius: 10%;
+    border-radius: 15%;
 }
