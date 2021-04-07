@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Moment from 'moment';
-import {TasksItem} from "./components/TasksItem";
+import {Tasks} from "./components/Tasks";
 
 const initialTasks: Array<Task> = [
   {text: "Work by progect", date: Moment(new Date(2021,4,6,17,15)).format('HH:MM DD-MM-YYYY'), completed: false},
@@ -8,10 +8,10 @@ const initialTasks: Array<Task> = [
 ];
 
 const App: React.FC = () => {
-  const [Tasks, setTasks] = useState(initialTasks);
+  const [tasks, setTasks] = useState(initialTasks);
 
   const toggleTask: ToggleTask = selectedTask =>{
-    const newTasks = Tasks.map(Task=>{
+    const newTasks = tasks.map(Task=>{
       if(Task === selectedTask){
         return{
           ...Task,
@@ -25,8 +25,7 @@ const App: React.FC = () => {
 
   return (
     <React.Fragment>
-      <TasksItem task={Tasks[0]} toggleTask = {toggleTask}/>
-      <TasksItem task={Tasks[1]} toggleTask = {toggleTask}/>
+      <Tasks tasks={tasks} toggleTask={toggleTask}/>
     </React.Fragment>
   );
 }
