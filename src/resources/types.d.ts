@@ -5,3 +5,5 @@ type Task = {
 };
 
 type ToggleTask = (selectedTask: Task) => void;
+
+type AddTask = (newTask: string) => void;

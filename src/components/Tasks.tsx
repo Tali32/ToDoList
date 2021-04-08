@@ -14,11 +14,9 @@ export const Tasks: React.FC<TasksProps> = ({tasks, toggleTask}) =>{
                 <label>Tasks:</label>
             </div>
             <div className="list">
-                <ul>
-                    {tasks.map(task =>{
-                        return <TasksItem key={task.text} task={task} toggleTask={toggleTask}/>
-                    })}
-                </ul>
+                {tasks.map(task =>{
+                    return <TasksItem key={task.text} task={task} toggleTask={toggleTask}/>
+                })}
             </div>
             
         </div>

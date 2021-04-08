@@ -1,0 +1,26 @@
+.add_task_form{
+    width: 60%;
+    height: 40px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    background-color: black;
+    border-radius: 15%;
+    align-items: center;
+}
+
+.task_text{
+    width: 60%;
+    display: flex;
+    margin-left: auto;
+    margin-right: 5px;
+    background-color: rgb(43, 43, 43);
+    color: white;
+}
+
+.add_button{
+    margin-right: auto;
+    background-color: rgb(60, 23, 77);
+    color: white;
+}
