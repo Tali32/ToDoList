@@ -4,8 +4,7 @@
 
 .text{
     word-wrap: break-word;
-    margin-left: 20px;
-    margin-right: 5px;
+    margin-left: 25px;
 }
 
 .date{
@@ -14,16 +13,36 @@
 }
 
 .date_item{
+    float: right;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
     margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(30, 30, 30);
+    border-radius: 15%;
 }
 
 .list_item{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    width: inherit;
+    padding: 15px;
+    margin: auto;
+    margin-top: 10px;
     margin-bottom: 10px;
-    height: max-content;
     color: rgb(255, 255, 255);
     background-color: rgb(43, 43, 43);
     border-radius: 15%;
+}
+
+.del{
+    align-items: center;
+}
+
+.del-button{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(60, 23, 77);
+    color: white;
 }
