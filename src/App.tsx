@@ -26,14 +26,22 @@ const App: React.FC = () => {
 
   const addTask: AddTask = newTask =>{
     newTask.trim() !== "" && 
-    setTasks([...tasks, {text:newTask, date: Moment(new Date(Date.now())).format('HH:MM DD-MM-YYYY'), completed: false}]);
+    setTasks([...tasks, {
+      id: (tasks.length === 0 ? 1 : tasks[tasks.length-1].id+1),
+      text:newTask, date: Moment(new Date(Date.now())).format('HH:MM DD-MM-YYYY'), 
+      completed: false
+    }]);
   }
+
+  const cleanAll: CleanAll = tasks =>{
+    setTasks(tasks.splice(0,0));
+  };
 
   return (
     <React.Fragment>
       <Banner/>
       <AddTaskForm addTask={addTask}/>
-      <Tasks tasks={tasks} toggleTask={toggleTask}/>
+      <Tasks tasks={tasks} toggleTask={toggleTask} cleanAll={cleanAll}/>
     </React.Fragment>
   );
 }
