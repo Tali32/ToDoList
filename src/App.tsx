@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import Moment from 'moment';
 import {Tasks} from "./components/Tasks";
 import { AddTaskForm } from './components/AddTaskForm';
+import { Banner } from './components/Banner';
 
 const initialTasks: Array<Task> = [
-  {text: "Work by progect aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", date: Moment(new Date(2021,4,6,17,15)).format('HH:MM DD-MM-YYYY'), completed: false},
-  {text: "Work by progect aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", date: Moment(new Date(2021,4,6,17,15)).format('HH:MM DD-MM-YYYY'), completed: false},
-  {text: "Work by progect aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", date: Moment(new Date(2021,4,6,17,15)).format('HH:MM DD-MM-YYYY'), completed: false}
+  
 ];
 
 const App: React.FC = () => {
@@ -32,6 +31,7 @@ const App: React.FC = () => {
 
   return (
     <React.Fragment>
+      <Banner/>
       <AddTaskForm addTask={addTask}/>
       <Tasks tasks={tasks} toggleTask={toggleTask}/>
     </React.Fragment>
