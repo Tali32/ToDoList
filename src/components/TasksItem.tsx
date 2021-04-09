@@ -1,12 +1,18 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import "./TasksItem.css";
 
 interface TasksItemProps{
     task: Task;
     toggleTask: ToggleTask;
+    delTask: DelTask;
 }
 
-export const TasksItem: React.FC<TasksItemProps> = ( {task, toggleTask} ) =>{
+export const TasksItem: React.FC<TasksItemProps> = ( {task, toggleTask, delTask} ) =>{
+    const handleDel =(e:FormEvent<HTMLButtonElement>)=>{
+        e.preventDefault();
+        delTask(task);
+    };
+
     return (
         <div className="list_item">
             <div className="item-content">
@@ -22,7 +28,7 @@ export const TasksItem: React.FC<TasksItemProps> = ( {task, toggleTask} ) =>{
                 </div>
             </div>
             <div className="del">
-                <button type="button" className="del-button">Delete</button>
+                <button type="button" className="del-button" onClick={handleDel}>Delete</button>
             </div> 
         </div>
     );

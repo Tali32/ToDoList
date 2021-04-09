@@ -9,4 +9,6 @@ type ToggleTask = (selectedTask: Task) => void;
 
 type AddTask = (newTask: string) => void;
 
+type DelTask = (selectedTask: Task) => void;
+
 type CleanAll = (tasks: Array<Task>) => void;

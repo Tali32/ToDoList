@@ -12,14 +12,14 @@ const App: React.FC = () => {
   const [tasks, setTasks] = useState(initialTasks);
 
   const toggleTask: ToggleTask = selectedTask =>{
-    const newTasks = tasks.map(Task=>{
-      if(Task === selectedTask){
+    const newTasks = tasks.map(task=>{
+      if(task === selectedTask){
         return{
-          ...Task,
-          completed: !Task.completed
+          ...task,
+          completed: !task.completed
         }
       }
-      return Task;
+      return task;
     });
     setTasks(newTasks);
   };
@@ -33,6 +33,10 @@ const App: React.FC = () => {
     }]);
   }
 
+  const delTask: DelTask = selectedTask =>{
+    setTasks(tasks.filter(task => task !== selectedTask));
+  }
+
   const cleanAll: CleanAll = tasks =>{
     setTasks(tasks.splice(0,0));
   };
@@ -41,7 +45,7 @@ const App: React.FC = () => {
     <React.Fragment>
       <Banner/>
       <AddTaskForm addTask={addTask}/>
-      <Tasks tasks={tasks} toggleTask={toggleTask} cleanAll={cleanAll}/>
+      <Tasks tasks={tasks} toggleTask={toggleTask} delTask={delTask} cleanAll={cleanAll}/>
     </React.Fragment>
   );
 }
