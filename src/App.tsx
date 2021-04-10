@@ -3,6 +3,7 @@ import Moment from 'moment';
 import {Tasks} from "./components/Tasks";
 import { AddTaskForm } from './components/AddTaskForm';
 import { Banner } from './components/Banner';
+import { Footer } from './components/Footer';
 
 const initialTasks: Array<Task> = [
   
@@ -46,6 +47,7 @@ const App: React.FC = () => {
       <Banner/>
       <AddTaskForm addTask={addTask}/>
       <Tasks tasks={tasks} toggleTask={toggleTask} delTask={delTask} cleanAll={cleanAll}/>
+      <Footer/>
     </React.Fragment>
   );
 }
