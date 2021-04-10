@@ -16,12 +16,10 @@ export const TasksItem: React.FC<TasksItemProps> = ( {task, toggleTask, delTask}
     return (
         <div className="list_item">
             <div className="item-content">
-                <input type="checkbox" className="completed-checkbox" checked={task.completed} onChange={() =>toggleTask(task)}/>
-                <div className="text">
-                    <label className={task.completed ? "complete" : undefined}>
-                        {task.text}
-                    </label>
-                </div>
+                <input type="checkbox" id={task.id.toString()} checked={task.completed} onChange={() =>toggleTask(task)}/>
+                <label htmlFor={task.id.toString()} className={task.completed ? "complete" : "uncomplete"}>
+                    {task.text}
+                </label>
                 <div className="date_item">
                 <label className="date">Date: </label>
                 <label >{task.date}</label>

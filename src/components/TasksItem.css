@@ -1,10 +1,12 @@
-.complete{
-    text-decoration: line-through;
-}
-
-.text{
-    word-wrap: break-word;
-    margin-left: 25px;
+.list_item{
+    width: inherit;
+    padding: 15px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(43, 43, 43);
+    border-radius: 15%;
 }
 
 .date{
@@ -24,17 +26,6 @@
     border-radius: 15%;
 }
 
-.list_item{
-    width: inherit;
-    padding: 15px;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(43, 43, 43);
-    border-radius: 15%;
-}
-
 .del{
     align-items: center;
 }
@@ -45,4 +36,41 @@
     margin-right: auto;
     background-color: rgb(60, 23, 77);
     color: white;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+.complete{
+    word-wrap: break-word;
+    text-decoration: line-through;
+}
+
+.uncomplete{
+    word-wrap: break-word;
+}
+
+.complete::before{
+    content: '';
+    display: block;
+    margin-bottom: 1rem;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(15, 15, 15);
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/86/Purple_check.svg");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 40%;
+}
+
+.uncomplete::before{
+    content: '';
+    display: block;
+    margin-bottom: 1rem;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(15, 15, 15);
+    border-radius: 40%;
 }

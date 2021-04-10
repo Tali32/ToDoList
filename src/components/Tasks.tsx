@@ -36,9 +36,6 @@ export const Tasks: React.FC<TasksProps> = ({tasks, toggleTask, delTask, cleanAl
                 <label>Tasks:</label>
             </div>
             <div className="list">
-                <div className="clean">
-                    <button type="button" className="clean-btn" onClick={handleClean}>Clean all</button>
-                </div>
                 <h2 className="empty-list">You have no tasks</h2>
             </div>
         </div>    
