@@ -19,7 +19,7 @@
     margin-right: auto;
     margin-bottom: 3rem;
     background-color: rgb(108,32,112);
-    border-radius: 15%; 
+    border-radius: 50px; 
 }
 
 .clean{
@@ -33,6 +33,7 @@
     display: inherit;
     background-color: rgb(220, 220, 220);
     font-weight: bold;
+    border-radius: 10px;
 }
 
 .empty-list{
