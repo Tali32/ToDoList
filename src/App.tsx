@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Moment from 'moment';
 import {Tasks} from "./components/Tasks";
 import { AddTaskForm } from './components/AddTaskForm';
 import { Banner } from './components/Banner';
@@ -29,7 +28,8 @@ const App: React.FC = () => {
     newTask.trim() !== "" && 
     setTasks([...tasks, {
       id: (tasks.length === 0 ? 1 : tasks[tasks.length-1].id+1),
-      text:newTask, date: Moment(new Date(Date.now())).format('HH:MM DD-MM-YYYY'), 
+      text: newTask, 
+      date: new Date(Date.now()), 
       completed: false
     }]);
   }

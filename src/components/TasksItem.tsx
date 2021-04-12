@@ -13,6 +13,14 @@ export const TasksItem: React.FC<TasksItemProps> = ( {task, toggleTask, delTask}
         delTask(task);
     };
 
+    const formatDate: FormatDate = (date) => {
+
+        var time = date.toLocaleTimeString();
+        var dat = date.toLocaleDateString();
+      
+        return time + '; ' + dat;
+    };
+
     return (
         <div className="list_item">
             <div className="item-content">
@@ -22,7 +30,7 @@ export const TasksItem: React.FC<TasksItemProps> = ( {task, toggleTask, delTask}
                 </label>
                 <div className="date_item">
                 <label className="date">Date: </label>
-                <label >{task.date}</label>
+                <label >{formatDate(task.date)}</label>
                 </div>
             </div>
             <div className="del">
