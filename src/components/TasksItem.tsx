@@ -13,12 +13,12 @@ export const TasksItem: React.FC<TasksItemProps> = ( {task, toggleTask, delTask}
         delTask(task);
     };
 
-    const formatDate: FormatDate = (date) => {
-
-        var time = date.toLocaleTimeString();
-        var dat = date.toLocaleDateString();
+    const formatDate: FormatDate = (dateTime: string) => {
+        const tmpDate = new Date(dateTime)
+        const time = tmpDate.toLocaleTimeString();
+        const date = tmpDate.toLocaleDateString();
       
-        return time + '; ' + dat;
+        return time + '; ' + date;
     };
 
     return (
@@ -26,11 +26,11 @@ export const TasksItem: React.FC<TasksItemProps> = ( {task, toggleTask, delTask}
             <div className="item-content">
                 <input type="checkbox" id={task.id.toString()} checked={task.completed} onChange={() =>toggleTask(task)}/>
                 <label htmlFor={task.id.toString()} className={task.completed ? "complete" : "uncomplete"}>
-                    {task.text}
+                    {task.description}
                 </label>
                 <div className="date_item">
                 <label className="date">Date: </label>
-                <label >{formatDate(task.date)}</label>
+                <label >{formatDate(task.date.toString())}</label>
                 </div>
             </div>
             <div className="del">

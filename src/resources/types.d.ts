@@ -1,6 +1,6 @@
 type Task = {
     id: number;
-    text: string;
+    description: string;
     date: Date;
     completed: boolean;
 };
@@ -13,4 +13,4 @@ type DelTask = (selectedTask: Task) => void;
 
 type CleanAll = (tasks: Array<Task>) => void;
 
-type FormatDate = (date: Date) => string;
+type FormatDate = (date: string) => string;
