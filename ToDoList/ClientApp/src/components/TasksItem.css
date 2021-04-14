@@ -1,0 +1,80 @@
+.list_item{
+    width: inherit;
+    padding: 15px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(43, 43, 43);
+    border-radius: 30px;
+}
+
+.date{
+    font-weight: bold;
+}
+
+.date_item{
+    float: right;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(30, 30, 30);
+    border-radius: 8px;
+}
+
+.del{
+    align-items: center;
+}
+
+.del-button{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(220, 220, 220);
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+.complete{
+    font-size: 20px;
+    color: rgb(127, 127, 127);
+    word-wrap: break-word;
+    text-decoration: line-through;
+}
+
+.uncomplete{
+    font-size: 20px;
+    word-wrap: break-word;
+}
+
+.complete::before{
+    content: '';
+    display: block;
+    margin-bottom: 1rem;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(220, 220, 220);
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/86/Purple_check.svg");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+}
+
+.uncomplete::before{
+    content: '';
+    display: block;
+    margin-bottom: 1rem;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(220, 220, 220);
+    border-radius: 8px;
+}
