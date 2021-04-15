@@ -63,5 +63,19 @@ namespace ToDoList.Models
                 throw;
             }
         }
+
+        public int DeleteAllTasks()
+        {
+            try
+            {
+                db.Tasks.RemoveRange(GetAllTasks());
+                db.SaveChanges();
+                return 1;
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

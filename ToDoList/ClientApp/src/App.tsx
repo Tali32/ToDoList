@@ -60,6 +60,8 @@ const App: React.FC = () => {
   }
 
   const cleanAll: CleanAll = tasks => {
+    axios.delete("api/Task/Remove");
+
     SetTasks(tasks.splice(0, 0));
   };
 

@@ -35,6 +35,13 @@ namespace ToDoList.Controllers
         public int Delete(int id)  
         {  
             return objtask.DeleteTask(id);  
-        }  
+        }
+
+        [HttpDelete]
+        [Route("api/Task/Remove")]
+        public int Remove()
+        {
+            return objtask.DeleteAllTasks();
+        }
     }
 }
