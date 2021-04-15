@@ -37,7 +37,9 @@ namespace ToDoList.Models
                     .ValueGeneratedNever()
                     .HasColumnName("ID");
 
-                entity.Property(e => e.Date).HasColumnType("datetime");
+                entity.Property(e => e.Date)
+                    .IsRequired()
+                    .HasMaxLength(25);
 
                 entity.Property(e => e.Description)
                     .IsRequired()

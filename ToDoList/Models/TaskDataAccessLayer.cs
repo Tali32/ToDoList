@@ -34,7 +34,7 @@ namespace ToDoList.Models
             }
         }
 
-        public int UpdateEmployee(Task task)
+        public int UpdateTask(Task task)
         {
             try
             {
@@ -42,19 +42,6 @@ namespace ToDoList.Models
                 db.SaveChanges();
 
                 return 1;
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
-        public Task GetTaskData(int id)
-        {
-            try
-            {
-                Task task = db.Tasks.Find(id);
-                return task;
             }
             catch
             {

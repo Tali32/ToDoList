@@ -23,18 +23,11 @@ namespace ToDoList.Controllers
             return objtask.AddTask(task);  
         }  
 
-        [HttpGet]  
-        [Route("api/Task/Details/{id}")]  
-        public Task Details(int id)  
-        {  
-            return objtask.GetTaskData(id);  
-        }
-
         [HttpPut]
         [Route("api/Task/Edit")]
         public int Edit(Task task)
         {
-            return objtask.UpdateEmployee(task);
+            return objtask.UpdateTask(task);
         }
 
         [HttpDelete]  
