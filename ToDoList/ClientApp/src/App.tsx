@@ -3,22 +3,17 @@ import { Tasks } from "./components/Tasks";
 import { AddTaskForm } from './components/AddTaskForm';
 import { Banner } from './components/Banner';
 import { Footer } from './components/Footer';
+import axios from 'axios';
 
-const initialTasks: Task[] = [];
+const initTasks: Task[] = [];
 
 const App: React.FC = () => {
-  const [tasks, setTasks] = useState(initialTasks);
-
-  const fetchTasks = () => {
-    fetch('api/Task/Index')
-      .then(response => response.json() as Promise<Task[]>)
-      .then(data => {
-        setTasks(data);
-      });
-  };
+  const [tasks, SetTasks] = useState(initTasks);
 
   useEffect(() => {
-    fetchTasks();
+    axios.get('api/Task/Index').then(resp =>{
+      SetTasks(resp.data);
+    });
   }, [])
 
   const toggleTask: ToggleTask = selectedTask => {
@@ -31,25 +26,41 @@ const App: React.FC = () => {
       }
       return task;
     });
-    setTasks(newTasks);
+    SetTasks(newTasks);
+  };
+
+  const formatDate: FormatDate = (dateTime: string) => {
+    const tmpDate = new Date(dateTime);
+    const time = tmpDate.toLocaleTimeString();
+    const date = tmpDate.toLocaleDateString();
+  
+    return time + '; ' + date;
   };
 
   const addTask: AddTask = newTask => {
-    newTask.trim() !== "" &&
-      setTasks([...tasks, {
+    if(newTask.trim() !== "")
+    {
+      const task: Task = {
         id: (tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1),
         description: newTask,
-        date: new Date(Date.now()),
+        date: formatDate(new Date(Date.now()).toString()),
         completed: false
-      }]);
+      };
+
+      //axios.post('api/Task/Create', task);
+
+      SetTasks([...tasks, task]);
+    } 
   }
 
   const delTask: DelTask = selectedTask => {
-    setTasks(tasks.filter(task => task !== selectedTask));
+    axios.delete("api/Task/Delete/" + selectedTask.id);
+
+    SetTasks(tasks.filter(task => task !== selectedTask));
   }
 
   const cleanAll: CleanAll = tasks => {
-    setTasks(tasks.splice(0, 0));
+    SetTasks(tasks.splice(0, 0));
   };
 
   return (
