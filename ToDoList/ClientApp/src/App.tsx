@@ -20,7 +20,7 @@ const App: React.FC = () => {
     const newTasks = tasks.map(task => {
       if (task === selectedTask) {
         task.completed = !task.completed;
-        //axios.put("api/Task/Edit", { task });
+        axios.put("api/Task/Edit", task);
         return task
       }
       return task;
