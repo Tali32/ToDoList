@@ -18,14 +18,14 @@ namespace ToDoList.Controllers
 
         [HttpPost]  
         [Route("api/Task/Create")]  
-        public int Create(Task task)  
+        public int Create([FromBody] Task task)  
         {  
             return objtask.AddTask(task);  
         }  
 
         [HttpPut]
         [Route("api/Task/Edit")]
-        public int Edit(Task task)
+        public int Edit([FromBody] Task task)
         {
             return objtask.UpdateTask(task);
         }

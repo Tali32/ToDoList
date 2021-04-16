@@ -19,10 +19,9 @@ const App: React.FC = () => {
   const toggleTask: ToggleTask = selectedTask => {
     const newTasks = tasks.map(task => {
       if (task === selectedTask) {
-        return {
-          ...task,
-          completed: !task.completed
-        }
+        task.completed = !task.completed;
+        //axios.put("api/Task/Edit", { task });
+        return task
       }
       return task;
     });
@@ -47,7 +46,7 @@ const App: React.FC = () => {
         completed: false
       };
 
-      //axios.post('api/Task/Create', task);
+      axios.post('api/Task/Create', task);
 
       SetTasks([...tasks, task]);
     } 
