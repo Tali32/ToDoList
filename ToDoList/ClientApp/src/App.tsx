@@ -9,10 +9,12 @@ const initTasks: Task[] = [];
 
 const App: React.FC = () => {
   const [tasks, SetTasks] = useState(initTasks);
+  const [loading, SetLoading] = useState(true);
 
   useEffect(() => {
     axios.get('api/Task/Index').then(resp =>{
       SetTasks(resp.data);
+      SetLoading(false);
     });
   }, [])
 
@@ -68,7 +70,7 @@ const App: React.FC = () => {
     <React.Fragment>
       <Banner />
       <AddTaskForm addTask={addTask} />
-      <Tasks tasks={tasks} toggleTask={toggleTask} delTask={delTask} cleanAll={cleanAll} />
+      <Tasks tasks={tasks} toggleTask={toggleTask} delTask={delTask} cleanAll={cleanAll} loading={loading}/>
       <Footer />
     </React.Fragment>
   );
