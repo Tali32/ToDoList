@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ToDoList.Models
 {
-    public class TaskDataAccessLayer
+    public class TaskDataAccessLayer : ITaskDataAccessLayer
     {
         ToDoListContext db = new ToDoListContext();
 
