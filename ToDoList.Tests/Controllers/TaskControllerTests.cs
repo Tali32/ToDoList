@@ -2,6 +2,7 @@
 using Moq;
 using NUnit.Framework;
 using ToDoList.Controllers;
+using ToDoList.Interfaces;
 using ToDoList.Models;
 
 namespace ToDoList.Tests.Controllers
@@ -9,15 +10,15 @@ namespace ToDoList.Tests.Controllers
     class TaskControllerTests
     {
         private TaskController _taskController;
-        private Mock<ITaskDataAccessLayer> _mockTaskDataAccessLayer;
+        private Mock<IRepository> _mockRepository;
         private Task _testTask;
 
         [Test]
         public void Create_Valid()
         {
             //Arrange
-            _mockTaskDataAccessLayer
-                .Setup(x => x.AddTask(_testTask))
+            _mockRepository
+                .Setup(x => x.Create(_testTask))
                 .Returns(1);
 
             //Act
@@ -35,8 +36,8 @@ namespace ToDoList.Tests.Controllers
             {
                 new Task()
             };
-            _mockTaskDataAccessLayer
-                .Setup(x => x.GetAllTasks())
+            _mockRepository
+                .Setup(x => x.GetAll())
                 .Returns(tasks);
 
             //Act
@@ -51,8 +52,8 @@ namespace ToDoList.Tests.Controllers
         {
             //Arrange
             _taskController.Create(_testTask);
-            _mockTaskDataAccessLayer
-                .Setup(x => x.UpdateTask(_testTask))
+            _mockRepository
+                .Setup(x => x.Update(_testTask))
                 .Returns(1);
 
             //Act
@@ -67,8 +68,8 @@ namespace ToDoList.Tests.Controllers
         {
             //Arrange
             int id = 1;
-            _mockTaskDataAccessLayer
-                .Setup(x => x.DeleteTask(id))
+            _mockRepository
+                .Setup(x => x.Delete(id))
                 .Returns(1);
 
             //Act
@@ -82,8 +83,8 @@ namespace ToDoList.Tests.Controllers
         public void Remove_Valid()
         {
             //Arrange
-            _mockTaskDataAccessLayer
-                .Setup(x => x.DeleteAllTasks())
+            _mockRepository
+                .Setup(x => x.DeleteAll())
                 .Returns(1);
 
             //Act
@@ -97,7 +98,7 @@ namespace ToDoList.Tests.Controllers
         public void SetUp()
         {
             _taskController = new TaskController();
-            _mockTaskDataAccessLayer = new Mock<ITaskDataAccessLayer>();
+            _mockRepository = new Mock<IRepository>();
             _testTask = new Task(1, "Test task", "12:59:59; 31.01.2000", false);
         }
     }

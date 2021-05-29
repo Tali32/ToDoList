@@ -4,17 +4,8 @@
 
 namespace ToDoList.Models
 {
-    public partial class ToDoListContext : DbContext
+    public partial class TaskContext : DbContext
     {
-        public ToDoListContext()
-        {
-        }
-
-        public ToDoListContext(DbContextOptions<ToDoListContext> options)
-            : base(options)
-        {
-        }
-
         public virtual DbSet<Task> Tasks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
